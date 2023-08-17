@@ -1,14 +1,14 @@
-import {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import axios from 'axios';
 
 
 // {score !== 0 && score >= highScore && result !== 'This game was a tie' && 
 // <h2 style={{ color: 'blue' }}>a new high score!</h2> 
 // }
-const Name = () => {
+const Name = (props) => {
+    console.log(props)
     const [data, setData] = useState();
     const [name, setName] = useState('')
-
 
     const fetchData = async (event) => {
         event.preventDefault();
@@ -21,10 +21,18 @@ const Name = () => {
         }
     };
 
+    useEffect(() => {
+        if (data) {
+            props.onDataExistenceChange(true);
+        } else {
+            props.onDataExistenceChange(false)
+        }
+    }, [data]);
+
 return (
     <div>
         <h2>Welcome to the YorkApp:</h2>
-        <pre>{JSON.stringify(data, null, 2)}</pre>
+        <pre> {JSON.stringify(data, null, 2)}</pre>
 
         <form onSubmit={fetchData}>
             <label>
