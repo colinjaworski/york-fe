@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+/* 'focus' will trigger when tapped or clicked */
+
+#rock:focus {
+  background-color: aqua;
+}
+
+#paper:focus {
+  background-color: aqua;
+}
+
+#scissors:focus {
+  background-color: aqua;
+}
+ 
