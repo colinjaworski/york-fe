@@ -1,6 +1,10 @@
 import {useEffect, useState} from 'react';
 import axios from 'axios';
 
+
+// {score !== 0 && score >= highScore && result !== 'This game was a tie' && 
+// <h2 style={{ color: 'blue' }}>a new high score!</h2> 
+// }
 const Name = () => {
     const [data, setData] = useState();
     const [name, setName] = useState('')
@@ -10,7 +14,7 @@ const Name = () => {
         event.preventDefault();
         try {
             console.log('is your name really', name);
-            const response = await axios.post('http://localhost:7071/api/reactBackend', {name});
+            const response = await axios.post('http://localhost:7071/api/react-backend', {name});
             setData(response.data)
         } catch (error) {
             console.error('Error fetching data:', error);
