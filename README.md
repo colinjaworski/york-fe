@@ -69,3 +69,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Things to Do: 
+Make a header component
+Make a view that simply shows your user wins and losses
+Make all views look better with css and material UI
+Put in logic to switch between views for different games
+create form for creating a user
+    registration
+    login component
+hook up mongoDB in backend
+make two other games besides rock paper scissors
