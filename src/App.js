@@ -7,12 +7,21 @@ import Header from './components/Header'
 
 
 function App() {
+  const [gameOption, setGameOption] = useState('');
+
+  const gameSelection = (tacos) => {
+    setGameOption(tacos);
+  }
+
   return (
     <div className="App">
       <Router>
-        <Header/>
+      <Header/>
       </Router>
-  </div>
+      <Name />
+      <button onClick={() => gameSelection('RPS')}>Rock Paper Scissors</button>
+      {gameOption === 'RPS' && <RPS />}
+    </div>
   );
 }
 
