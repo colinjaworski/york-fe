@@ -5,16 +5,17 @@ import RPS from './components/RPS'
 
 
 function App() {
-  const [isDataPresent, setIsDataPresent] = useState(false);
+  const [gameOption, setGameOption] = useState('');
 
-  const handleDataExistence = (exists) => {
-      setIsDataPresent(exists)
-  };
+  const gameSelection = (tacos) => {
+    setGameOption(tacos);
+  }
 
   return (
     <div className="App">
-      <Name onDataExistenceChange={handleDataExistence}/>
-      {isDataPresent && <RPS />}
+      <Name />
+      <button onClick={() => gameSelection('RPS')}>Rock Paper Scissors</button>
+      {gameOption === 'RPS' && <RPS />}
     </div>
   );
 }
