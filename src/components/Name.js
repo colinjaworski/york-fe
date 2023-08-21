@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 
 
@@ -14,39 +14,31 @@ const Name = (props) => {
         event.preventDefault();
         try {
             console.log('is your name really', name);
-            const response = await axios.post('http://localhost:7071/api/react-backend', {name});
+            const response = await axios.post('http://localhost:7071/api/react-backend', { name });
             setData(response.data)
         } catch (error) {
             console.error('Error fetching data:', error);
         }
     };
 
-    useEffect(() => {
-        if (data) {
-            props.onDataExistenceChange(true);
-        } else {
-            props.onDataExistenceChange(false)
-        }
-    }, [data]);
+    return (
+        <div>
+            <h2>Welcome to the YorkApp:</h2>
+            <pre> {JSON.stringify(data, null, 2)}</pre>
 
-return (
-    <div>
-        <h2>Welcome to the YorkApp:</h2>
-        <pre> {JSON.stringify(data, null, 2)}</pre>
-
-        <form onSubmit={fetchData}>
-            <label>
-                Please Enter your name:
-                <input 
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
-            </label>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
-);
+            <form onSubmit={fetchData}>
+                <label>
+                    Please Enter your name:
+                    <input
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                </label>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    );
 };
 
 export default Name;
