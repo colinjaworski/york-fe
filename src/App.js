@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { ThemeProvider, CssBaseline } from '@mui/material';
+import { createTheme } from '@mui/material/styles'
 import './App.css';
 import Name from './components/Name';
 import RPS from './components/RPS';
@@ -13,7 +15,17 @@ function App() {
     setGameOption(tacos);
   }
 
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#ADD8E6',
+      }
+    }
+  })
+
   return (
+    <ThemeProvider theme = {theme}>
+      <CssBaseline />
     <div className="App">
       <Router>
       <Header/>
@@ -22,6 +34,7 @@ function App() {
       <button onClick={() => gameSelection('RPS')}>Rock Paper Scissors</button>
       {gameOption === 'RPS' && <RPS />}
     </div>
+    </ThemeProvider>
   );
 }
 
