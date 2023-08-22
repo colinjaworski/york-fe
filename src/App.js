@@ -4,8 +4,16 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import { createTheme } from '@mui/material/styles'
 import './App.css';
 import Name from './components/Name';
-import RPS from './components/RPS';
+import RPS from './components/RPS'
 import Header from './components/Header'
+import Placeholder from './components/Placeholder';
+import TicTacToe from './components/TicTacToe';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+
+
+
+
 
 
 function App() {
@@ -18,7 +26,7 @@ function App() {
   const theme = createTheme({
     palette: {
       primary: {
-        main: '#ADD8E6',
+        main: '#00008B',
       }
     }
   })
@@ -28,11 +36,19 @@ function App() {
       <CssBaseline />
     <div className="App">
       <Router>
-      <Header/>
+        <Header />
       </Router>
       <Name />
-      <button onClick={() => gameSelection('RPS')}>Rock Paper Scissors</button>
+      <Stack spacing={1} direction="row" className='gameSelection'>
+        {/* button variant could also be "text" or "contained" */}
+        <Button variant="outlined" onClick={() => gameSelection('RPS')}>Rock Paper Scissors</Button>
+        <Button variant="outlined" onClick={() => gameSelection('TicTacToe')}>Tick Tack Toes</Button>
+        <Button variant="outlined" onClick={() => gameSelection('Placeholder')}>This is a placeholder</Button>
+      </Stack>
       {gameOption === 'RPS' && <RPS />}
+      {gameOption === 'TicTacToe' && <TicTacToe />}
+      {gameOption === 'Placeholder' && <Placeholder />}
+
     </div>
     </ThemeProvider>
   );

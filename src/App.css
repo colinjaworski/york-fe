@@ -50,4 +50,9 @@
 #scissors:focus {
   background-color: aqua;
 }
+
+.gameSelection {
+  display: flex;
+  justify-content: center;
+}
  
