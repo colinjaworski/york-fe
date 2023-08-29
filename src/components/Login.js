@@ -30,7 +30,7 @@ const tryRegister = async (event) => {
     const response = await axios.post('http://localhost:7071/api/react-backend/register', { name, password });
     setName(name)
     console.log(response)
-    tryLogin(name, password)
+    tryLogin(event)
 } catch (error) {
     console.error('Error fetching data:', error);
 }
