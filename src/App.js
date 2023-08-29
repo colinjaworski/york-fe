@@ -8,6 +8,7 @@ import RPS from './components/RPS'
 import Header from './components/Header'
 import Placeholder from './components/Placeholder';
 import TicTacToe from './components/TicTacToe';
+import Login from './components/Login';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
@@ -38,6 +39,7 @@ function App() {
       <Router>
         <Header />
       </Router>
+      <Login />
       <Name />
       <Stack spacing={1} direction="row" className='gameSelection'>
         {/* button variant could also be "text" or "contained" */}
