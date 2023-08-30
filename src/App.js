@@ -3,7 +3,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { createTheme } from '@mui/material/styles'
 import './App.css';
-import Name from './components/Name';
 import RPS from './components/RPS'
 import Header from './components/Header'
 import Placeholder from './components/Placeholder';
@@ -19,6 +18,7 @@ import Button from '@mui/material/Button';
 
 function App() {
   const [gameOption, setGameOption] = useState('');
+  const [loginStatus, setLoginStatus] = useState('notLoggedIn');
 
   const gameSelection = (tacos) => {
     setGameOption(tacos);
@@ -37,10 +37,12 @@ function App() {
       <CssBaseline />
     <div className="App">
       <Router>
-        <Header />
+        <Header loginStatus={loginStatus} />
       </Router>
-      <Login />
-      <Name />
+      <Login 
+      loginStatus = {loginStatus}
+      setLoginStatus={setLoginStatus}
+      />
       <Stack spacing={1} direction="row" className='gameSelection'>
         {/* button variant could also be "text" or "contained" */}
         <Button variant="outlined" onClick={() => gameSelection('RPS')}>Rock Paper Scissors</Button>
