@@ -5,11 +5,10 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
- function Login() {
+ function Login({loginStatus, setLoginStatus}) {
 
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
-  const [loginStatus, setLoginStatus] = useState('notLoggedIn')
 
 
 const tryLogin = async (event) => {
@@ -97,7 +96,7 @@ const tryRegister = async (event) => {
 
 
      {loginStatus==='loggedIn' && <Box sx={{ bgcolor: '#e3f4fa', margin: '22px', padding: '22px'}}>
-      <h2>Hello, {name}!</h2>
+      <h2>Hello, {name}! </h2>
       </Box>}
     </Container>
   );

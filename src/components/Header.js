@@ -4,7 +4,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 import {Link} from 'react-router-dom';
 
 
-const Header = () => {
+const Header = ({ loginStatus }) => {
     const [anchorEl, setAnchorEl] = useState(null);
 
     const handleClick = (event) => {
@@ -23,23 +23,6 @@ const Header = () => {
                 <IconButton color="inherit" aria-label="menu" onClick={handleClick}>
                     <MenuIcon />
                 </IconButton>
-
-
-        {/* <div className = "header">
-            <nav>
-                <ul className = "links">
-                    <li>
-                        <Link to ="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link to ="/login">Log In</Link>
-                    </li>
-                    <li>
-                        <Link to ="/register">Register</Link>
-                    </li>
-                </ul>
-            </nav>
-        </div> */}
         <Menu
             anchorEl={anchorEl}
             keepMounted
@@ -47,8 +30,7 @@ const Header = () => {
             onClose={handleClose}
             >
                 <MenuItem onClick={handleClose} component={Link} to="/">Home</MenuItem>
-                <MenuItem onClick={handleClose} component={Link} to="/login">Login</MenuItem>
-                <MenuItem onClick={handleClose} component={Link} to="/register">Register</MenuItem>
+                {loginStatus === 'loggedIn' && <MenuItem onClick={handleClose} component={Link} to="/logout">Logout</MenuItem>}
             </Menu>
         </Toolbar>
         </AppBar>
