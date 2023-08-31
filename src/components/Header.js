@@ -45,7 +45,7 @@ const Header = ({ loginStatus }) => {
                 <IconButton edge= "end" color="inherit" aria-label="menu" onClick={handleClick}>
                     <MenuIcon />
                 </IconButton>
-        <Menu 
+        <Menu
             anchorEl={anchorEl}
             keepMounted
             open={Boolean(anchorEl)}
